@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADAV Craving by VIAAN BANSAL - Food Delivery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #000000, #333333, #666666, #ff4757, #2ed573);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        header {
+            background: #000000;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 2.5em;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .founders {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        .website-link {
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .column {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 15px;
+            width: 45%;
+            min-width: 320px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            border: 2px solid #ff4757;
+        }
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: #333333;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            text-align: center;
+        }
+        .item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .item h4 {
+            margin: 5px 0;
+            color: #ff4757;
+        }
+        .description {
+            font-size: 0.9em;
+            color: #ccc;
+            margin: 5px 0;
+        }
+        .price {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #2ed573;
+        }
+        .add-btn {
+            background: #2ed573;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .add-btn:hover {
+            background: #1e90ff;
+        }
+        .cart {
+            background: #333333;
+            color: white;
+            padding: 25px;
+            margin: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            border: 2px solid #ff4757;
+        }
+        .coupon {
+            margin: 20px 0;
+            text-align: center;
+        }
+        input[type="text"], textarea {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            width: 100%;
+            max-width: 300px;
+            margin: 5px;
+            background: #fff;
+            color: #000;
+        }
+        .order-btn {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.3em;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 15px;
+        }
+        .order-btn:hover {
+            background: #c44569;
+        }
+        .confirmation {
+            display: none;
+            background: #2ed573;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .option-btn {
+            background: #3742fa;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .option-btn:hover {
+            background: #2f3542;
+        }
+        .insta-link {
+            display: none;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+        .owner-edit {
+            display: none;
+            background: #333333;
+            padding: 25px;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            border: 2px solid #ff4757;
+        }
+        .owner-btn {
+            background: #ff6348;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+        .owner-btn:hover {
+            background: #e55039;
+        }
+        footer {
+            background: #000000;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .column {
+                width: 100%;
+            }
+            .options {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ADAV Craving by VIAAN BANSAL</h1>
+        <p>Delicious Veg Food Delivery | Call: 8922001118 | Insta: @adav_craving</p>
+        <div class="founders">Founder: Deepak Bansal | Co-Founder: Viaan Bansal</div>
+        <div class="website-link">Website: <a href="https://your-hosted-url.com" target="_blank" style="color: #2ed573;">https://your-hosted-url.com</a></div>
+    </header>
+
+    <div class="container">
+        <div class="column">
+            <h2>Food Items (All Veg)</h2>
+            <div class="item">
+                <img src="https://via.placeholder.com/80?text=Burger" alt="Burger">
+                <h4>Burger</h4>
+                <p class="description">Juicy veg patty with fresh veggies and special sauce in a soft bun.</p>
+                <span class="price">₹120</span>
+                <button class="add-btn" onclick="addToCart('Burger', 120)">Add</button>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/80?text=Pizza" alt="Pizza">
+                <h4>Pizza</h4>
+                <p class="description">Cheesy veg pizza topped with tomatoes, onions, and bell peppers.</p>
+                <span class="price">₹140</span>
+                <button class="add-btn" onclick="addToCart('Pizza', 140)">Add</button>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/80?text=Pasta" alt="Pasta">
+                <h4>Pasta</h4>
+                <p class="description">Creamy white sauce pasta with mixed veggies and herbs.</p>
+                <span class="price">₹130</span>
+                <button class="add-btn" onclick="addToCart('Pasta', 130)">Add</button>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/80?text=Fries" alt="French Fries">
+                <h4>French Fries</h4>
+                <p class="description">Crispy golden fries seasoned with salt and spices.</p>
+                <span class="price">₹80</span>
+                <button class="add-btn" onclick="addToCart('French Fries', 80)">Add</button>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/80?text=Nuggets" alt="Nuggets">
+                <h4>Nuggets</h4>
+                <p class="description">Crunchy veg nuggets made with potatoes and spices.</p>
+                <span class="price">₹100</span>
+                <button class="add-btn" onclick="addToCart('Nuggets', 100)">Add</button>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/80?text=Golgappe" alt="Golgappe">
+                <h4>Golgappe</h4>
+                <p class="description">Spicy water golgappe with tamarind chutney and potatoes.</p>
+                <span class="price">₹70</span>
+                <button class="add-btn" onclick="addToCart('Golgappe', 70)">Add</button>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/80?text=Maggi" alt="Maggi">
+                <h4>Maggi</h4>
+                <p class="description">Classic veg Maggi noodles with veggies and special masala.</p>
+                <span class="price">₹90</span>
+                <button class="add-btn" onclick="addToCart('Maggi', 90)">Add</button>
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>Drinks</h2>
+            <div class="item">
+                <img src="https://via.placeholder.com/80?text=ColdCoffee" alt="Cold Coffee">
+                <h4>Cold Coffee</h4>
+                <p class="description">Refreshing iced coffee with milk and a hint of chocolate.</p>
+                <span class="price">₹100</span>
+                <button class="add-btn" onclick="addToCart('Cold Coffee', 100)">Add</button>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/80?text=Lemonade" alt="Lemonade">
+                <h4>Lemonade</h4>
+                <p class="description">Tangy fresh lemonade with mint and lemon slices.</p>
+                <span class="price">₹70</span>
+                <button class="add-btn" onclick="addToCart('Lemonade', 70)">Add</button>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/80?text=Water" alt="Water">
+                <h4>Water</h4>
+                <p class="description">Pure mineral water bottle for hydration.</p>
+                <span class="price">₹20</span>
+                <button class="add-btn" onclick="addToCart('Water', 20)">Add</button>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/80?text=Coke" alt="Coke">
+                <h4>Coke</h4>
+                <p class="description">Classic cola drink, chilled and refreshing.</p>
+                <span class="price">₹40</span>
+                <button class="add-btn" onclick="addToCart('Coke', 40)">Add</button>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/80?text=ThumsUp" alt="Thums Up">
+                <h4>Thums Up</h4>
+                <p class="description">Strong cola with a bold flavor.</p>
+                <span class="price">₹40</span>
+                <button class="add-btn" onclick="addToCart('Thums Up', 40)">Add</button>
+            </div>
+            <div class="item">
+                <img src="https://via.placeholder.com/80?text=Sprite" alt="Sprite">
+                <h4>Sprite</h4>
+                <p class="description">Lemon-lime soda, crisp and bubbly.</p>
+                <span class="price">₹40</span>
+                <button class="add-btn" onclick="addToCart('Sprite', 40)">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart">
+        <h3>Your Cart</h3>
+        <div id="cart-items"></div>
+        <p>Total: ₹<span id="total">0</span> + ₹30 Delivery = ₹<span id="grand-total">30</span></p>
+        <div class="coupon">
+            <input type="text" id="coupon-code" placeholder="Enter Coupon Code">
+            <button class="order-btn" onclick="applyCoupon()">Apply Coupon</button>
+        </div>
+        <textarea id="address" placeholder="Enter your delivery address" rows="3"></textarea>
+        <button class="order-btn" onclick="placeOrder()">Place Order (Cash on Delivery)</button>
+    </div>
+
+    <div class="confirmation" id="confirmation">
+        <h3>Order Placed!</h3>
+        <p>Delivery in 50 mins. Total: ₹<span id="final-total"></span></p>
+        <div class="options">
+            <button class="option-btn" onclick="talkOnNumber()">Talk on Number</button>
+            <button class="option-btn" onclick="talkOnInsta()">Talk on Insta</button>
+        </div>
+        <div class="insta-link" id="insta-link">
+            <p>Instagram: @adav_craving</p>
+        </div>
+    </div>
+
+    <button class="owner-btn" onclick="showOwnerEdit()">Owner Edit</button>
+    <div class="owner-edit" id="owner-edit">
+        <h3>Edit Website</h3>
+        <p>(This is a placeholder. In a real site, this would connect to a backend for editing items, prices, descriptions, etc.)</p>
+        <input type="text" placeholder="New Item Name">
+        <textarea placeholder="Description"></textarea>
+        <input type="number" placeholder="Price">
+        <button>Update</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 ADAV Craving. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        let total = 0;
+        let discount = 0;
+
+        function addToCart(item, price) {
+            cart.push({item, price});
+            total += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = cart.map(i => `<p>${i.item} - ₹${i.price}</p>`).join('');
+            document.getElementById('total').textContent = total;
+            document.getElementById('grand-total').textContent = total + 30 - discount;
+        }
+
+        function applyCoupon() {
+            const code = document.getElementById('coupon-code').value;
+            if (code === 'AACD123' || code === 'ANUJA11') {
+                discount = 50;
+                alert('Coupon applied! ₹50 discount.');
+            } else {
+                discount = 0;
+                alert('Invalid coupon.');
+            }
+            updateCart();
+        }
+
+        function placeOrder() {
+            if (cart.length === 0) {
+                alert('Cart is empty!');
+                return;
+            }
+            const address = document.getElementById('address').value;
+            if (!address) {
+                alert('Please enter your delivery address.');
+                return;
+            }
+            // Simulate notification to owner (in real site, use API to send SMS/email with address)
+            alert(`Order notification sent to 8922001118 and device. Address: ${address}`);
+            document.getElementById('confirmation').style.display = 'block';
+            document.getElementById('final-total').textContent = total + 30 - discount;
+            // Reset cart
+            cart = [];
+            total = 0;
+            discount = 0;
+            updateCart();
+            document.getElementById('address').value = '';
+        }
+
+        function talkOnNumber() {
+            window.location.href = 'tel:8922001118';
+        }
+
+        function talkOnInsta() {
+            document.getElementById('insta-link').style.display = 'block';
+        }
+
+        function showOwnerEdit() {
+            document.getElementById('owner-edit').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
